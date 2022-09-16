@@ -15,6 +15,31 @@ const [tasks, setTasks] =  useState([{
 }
 ])
 
+
+//add task
+
+
+//delete task
+ function delTask(e) {
+
+  //pega indice e armazena o array em uma variavel
+  let p = e.target.value 
+  let taskDel = tasks[p]
+ 
+  //testa se é diferente do indice de exclusao e retorna
+  function condition(task) {
+    if(task!== taskDel){
+      return task
+    }
+  }
+  let newTasks =  tasks.filter(condition)
+
+  //passa o novo array sem o excluido paa o state
+  setTasks(newTasks)
+
+}
+
+
   return (
     <div className="App">
 
@@ -27,11 +52,11 @@ const [tasks, setTasks] =  useState([{
       </div>
 
       <div className='tasks'>
-      {tasks.map((task)=>(
+      {tasks.map((task,key)=>(
               <div className='card-task'>
                 <h2>{task.name}</h2>
                 <p>{task.description}</p>
-                <button className='red'>Delete</button>
+                <button value={key} className='red' onClick={(e)=>delTask(e)}>Delete</button>
               </div>
             ))}
       </div>
@@ -42,12 +67,3 @@ const [tasks, setTasks] =  useState([{
 }
 
 export default App;
-
-
-
-//objeto para guardar as tasks  
-//estrutura => nome, desc. e btn de excluir
-
-//componente de exibicao, criar um map e o componente dentro
-
-//
