@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 function App() {
 
+//tarefas
 const [tasks, setTasks] =  useState([{
   "name":"Lavar roupa",
   "description":"nao esquecer da agua",
@@ -15,8 +16,27 @@ const [tasks, setTasks] =  useState([{
 }
 ])
 
+//tasks de entrada
+let [name, setName] = useState()
+let [description, setDescription] = useState()
+
 
 //add task
+
+function addTask(e) {
+
+  const newTask = {
+    "name": name,
+    "description": description
+  }
+
+  setTasks([...tasks, newTask])
+
+  e.preventDefault()
+}
+
+//controle dos inputs para salvar
+
 
 
 //delete task
@@ -34,7 +54,7 @@ const [tasks, setTasks] =  useState([{
   }
   let newTasks =  tasks.filter(condition)
 
-  //passa o novo array sem o excluido paa o state
+  //passa o novo array 
   setTasks(newTasks)
 
 }
@@ -44,10 +64,10 @@ const [tasks, setTasks] =  useState([{
     <div className="App">
 
       <div className="form">
-      <form action="/">
-          <input type="text" placeholder='Tarefa' />
-          <input type="text" placeholder='Descrição' />
-          <button type="submit" className='add'>Add. Tarefa</button>
+      <form onSubmit={(e)=>addTask(e)}>
+          <input maxLength={20} type="text" name="name" placeholder='Tarefa' onChange={(e)=>setName(e.target.value)}/>
+          <input maxLength={20} type="text" name="description" placeholder='Descrição'onChange={(e)=>setDescription(e.target.value)} />
+          <button type="submit" className='add' >Add. Tarefa</button>
       </form>
       </div>
 
