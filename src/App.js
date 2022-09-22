@@ -6,13 +6,13 @@ function App() {
 //tarefas
 const [tasks, setTasks] =  useState([{
   "name":"Lavar roupa",
-  "description":"nao esquecer da agua",
+  "description":"Usar omo",
 },{
   "name":"Limpar a cama",
-  "description":"Limpar travesseiro",
+  "description":"Deixar deixar travesseiro no armario",
 },{
-  "name":"Matheus",
-  "description":"vindo das aguas",
+  "name":"Fazer janta",
+  "description":"incluir legumes",
 }
 ])
 
