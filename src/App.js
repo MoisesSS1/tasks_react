@@ -4,17 +4,7 @@ import { useState } from 'react';
 function App() {
 
 //tarefas
-const [tasks, setTasks] =  useState([{
-  "name":"Lavar roupa",
-  "description":"Usar omo",
-},{
-  "name":"Limpar a cama",
-  "description":"Deixar deixar travesseiro no armario",
-},{
-  "name":"Fazer janta",
-  "description":"incluir legumes",
-}
-])
+const [tasks, setTasks] =  useState([])
 
 //tasks de entrada
 let [name, setName] = useState()
